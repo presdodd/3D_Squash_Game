@@ -1,19 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvvy0aj2b163f"]
+[gd_scene load_steps=6 format=3 uid="uid://cvvy0aj2b163f"]
 
-[ext_resource type="PackedScene" uid="uid://bm2smp84wekm4" path="res://scenes/character_1.tscn" id="1_ru4t0"]
-[ext_resource type="Script" path="res://scripts/character_1.gd" id="2_jlr15"]
+[ext_resource type="PackedScene" uid="uid://c6pu5k1lstqbp" path="res://scenes/character_2.tscn" id="1_wk25i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lw6f8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rwb2j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jsnxm"]
-size = Vector3(8, 0.5, 8)
+size = Vector3(20, 2, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8jeva"]
-size = Vector3(8, 0.5, 8)
+size = Vector3(20, 2, 20)
 
 [node name="Level" type="Node3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_wk25i")]
 
 [node name="Box" type="RigidBody3D" parent="."]
 transform = Transform3D(0.544288, -0.838899, 0, 0.344284, 0.223376, 0.911905, -0.764996, -0.496339, 0.410401, 0, 3.60464, 0)
@@ -22,21 +23,23 @@ transform = Transform3D(0.544288, -0.838899, 0, 0.344284, 0.223376, 0.911905, -0
 shape = SubResource("BoxShape3D_lw6f8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Box"]
-transform = Transform3D(1, 2.98023e-08, -5.96046e-08, 2.98023e-08, 1, -1.49012e-08, -5.96046e-08, -2.98023e-08, 1, 1.76648, -2.72264, 0)
+transform = Transform3D(1, 2.98023e-08, -5.96046e-08, 2.98023e-08, 1, -1.49012e-08, -5.96046e-08, -2.98023e-08, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_rwb2j")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.0253918, 0, 0.999678, 0, 1, 0, -0.999678, 0, 0.0253918, 5.7413, 1.37658, 0.0521704)
+transform = Transform3D(0.999143, 0, 0.0413874, -0.00637523, 0.988065, 0.153906, -0.0408935, -0.154038, 0.987218, 0.164752, 2.8003, 6.05531)
+fov = 88.873
 
 [node name="floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
 mesh = SubResource("BoxMesh_jsnxm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142732, 0.0177879, -0.0122652)
 shape = SubResource("BoxShape3D_8jeva")
 
-[node name="Character1" parent="." instance=ExtResource("1_ru4t0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.772534, 0)
-script = ExtResource("2_jlr15")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.957943, -0.210918, 0.194574, 0, 0.678057, 0.735009, -0.286959, -0.704097, 0.64954, -0.756576, 3.76546, 6.29174)
+shadow_enabled = true
