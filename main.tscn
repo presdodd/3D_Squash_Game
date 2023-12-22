@@ -15,9 +15,10 @@ size = Vector3(20, 2, 20)
 [node name="Level" type="Node3D"]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_wk25i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009, 0, 0.002)
 
 [node name="Box" type="RigidBody3D" parent="."]
-transform = Transform3D(0.544288, -0.838899, 0, 0.344284, 0.223376, 0.911905, -0.764996, -0.496339, 0.410401, 0, 3.60464, 0)
+transform = Transform3D(0.544288, -0.838899, 0, 0.344284, 0.223376, 0.911905, -0.764996, -0.496339, 0.410401, 4.54238, 3.60464, 0.00226212)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box"]
 shape = SubResource("BoxShape3D_lw6f8")
@@ -27,7 +28,7 @@ transform = Transform3D(1, 2.98023e-08, -5.96046e-08, 2.98023e-08, 1, -1.49012e-
 mesh = SubResource("BoxMesh_rwb2j")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.999143, 0, 0.0413874, -0.00637523, 0.988065, 0.153906, -0.0408935, -0.154038, 0.987218, 0.164752, 2.8003, 6.05531)
+transform = Transform3D(0.999143, -1.72898e-08, 0.0413875, -0.0347136, 0.544522, 0.838028, -0.0225364, -0.838747, 0.544055, 0.164752, 7.24265, 5.48172)
 fov = 88.873
 
 [node name="floor" type="StaticBody3D" parent="."]
